@@ -13,6 +13,16 @@ const config: Config = {
         secondary: '#6f848c',
         title: '#cbd4d4',
       },
+      keyframes: {
+        scale: {
+          '100%': {
+            transform: 'scale-110',
+          },
+        },
+      },
+      animation: {
+        scale: 'scale .5s ease-in',
+      },
     },
   },
   plugins: [],

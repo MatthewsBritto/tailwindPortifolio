@@ -3,16 +3,22 @@
 import { Linkedin, Github } from 'lucide-react'
 import { MenuItem } from './MenuItem'
 import { useState } from 'react'
+import dynamicIconImports from 'lucide-react/dynamicIconImports'
+
+type linksProps = {
+  name: keyof typeof dynamicIconImports
+  title: string
+}[]
 
 export default function Aside() {
-  const [currentTab, setCurrentTab] = useState('skills')
+  const [currentTab, setCurrentTab] = useState('home')
 
-  const listLinks = [
+  const listLinks: linksProps = [
     { name: 'home', title: 'home' },
     { name: 'user', title: 'about' },
     { name: 'book-copy', title: 'skills' },
     { name: 'file', title: 'works' },
-    { name: 'phone', title: 'Phone' },
+    { name: 'phone', title: 'Contact' },
   ]
 
   return (
@@ -28,18 +34,18 @@ export default function Aside() {
           className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide"
           onChange={() => setCurrentTab}
         >
-          {listLinks &&
-            listLinks.map(({ name, title }) => {
+          {/* {listLinks &&
+            listLinks.map(({ title }) => {
               return (
                 <MenuItem
-                  key={name}
+                  key={title}
                   variant={currentTab === title ? 'active' : undefined}
-                  name={name}
+                  active={currentTab === title}
                   title={title.toUpperCase()}
                   onClick={() => setCurrentTab(title)}
                 />
               )
-            })}
+            })} */}
         </ul>
       </div>
 

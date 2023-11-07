@@ -4,11 +4,11 @@ import dynamic from 'next/dynamic'
 import { ComponentProps } from 'react'
 import { tv, VariantProps } from 'tailwind-variants'
 
-interface IconProps extends LucideProps {
+export interface IconProps extends LucideProps {
   name: keyof typeof dynamicIconImports
 }
 
-function Icon({ name, ...props }: IconProps) {
+export function Icon({ name, ...props }: IconProps) {
   const LucideIcon = dynamic(dynamicIconImports[name])
   return <LucideIcon {...props} />
 }
@@ -24,13 +24,12 @@ const Item = tv({
 
 export type MenuItemProps = ComponentProps<'li'> &
   VariantProps<typeof Item> & {
-    name: keyof typeof dynamicIconImports
+    active: boolean
   }
 
-export function MenuItem({ name, title, variant, ...props }: MenuItemProps) {
+export function MenuItem({ title, variant, active, ...props }: MenuItemProps) {
   return (
     <li {...props} className={Item({ variant })}>
-      <Icon name={name} />
       <h2>{title}</h2>
     </li>
   )
