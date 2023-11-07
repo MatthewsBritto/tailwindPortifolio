@@ -1,11 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { Linkedin, Github } from 'lucide-react'
-import MenuItem from './MenuItem'
+import { MenuItem } from './MenuItem'
 import { useState } from 'react'
 
 export default function Aside() {
-  const [currentTab, setCurrentTab] = useState('my-details')
+  const [currentTab, setCurrentTab] = useState('skills')
+
+  const listLinks = [
+    { name: 'home', title: 'home' },
+    { name: 'user', title: 'about' },
+    { name: 'book-copy', title: 'skills' },
+    { name: 'file', title: 'works' },
+    { name: 'phone', title: 'Phone' },
+  ]
+
   return (
     <aside className="w-72 py-10 h-screen flex flex-col items-center bg-primary justify-evenly border-r-2  border-r-[#6C63FF]">
       <div className="space-y-20">
@@ -15,12 +24,22 @@ export default function Aside() {
           className="h-40 rounded-full border border-[#6C63FF]"
         />
 
-        <ul className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide">
-          <MenuItem name="home" title="Home" />
-          <MenuItem name="user" title="About" />
-          <MenuItem name="book-copy" title="Skills" />
-          <MenuItem name="file" title="Works" />
-          <MenuItem name="phone" title="Phone" />
+        <ul
+          className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide"
+          onChange={() => setCurrentTab}
+        >
+          {listLinks &&
+            listLinks.map(({ name, title }) => {
+              return (
+                <MenuItem
+                  key={name}
+                  variant={currentTab === title ? 'active' : undefined}
+                  name={name}
+                  title={title.toUpperCase()}
+                  onClick={() => setCurrentTab(title)}
+                />
+              )
+            })}
         </ul>
       </div>
 

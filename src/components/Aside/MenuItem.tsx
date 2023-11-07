@@ -2,23 +2,35 @@ import { LucideProps } from 'lucide-react'
 import dynamicIconImports from 'lucide-react/dynamicIconImports'
 import dynamic from 'next/dynamic'
 import { ComponentProps } from 'react'
+import { tv, VariantProps } from 'tailwind-variants'
 
-interface MenuItemProps extends LucideProps {
+interface IconProps extends LucideProps {
   name: keyof typeof dynamicIconImports
-  title: string
-  isSelected: boolean
 }
 
-export default function MenuItem({
-  name,
-  title,
-  isSelected = false,
-  ...props
-}: MenuItemProps) {
+function Icon({ name, ...props }: IconProps) {
   const LucideIcon = dynamic(dynamicIconImports[name])
+  return <LucideIcon {...props} />
+}
+
+const Item = tv({
+  base: 'flex justify-center gap-2 cursor-pointer hover:text-yellow-500',
+  variants: {
+    variant: {
+      active: 'text-yellow-500',
+    },
+  },
+})
+
+export type MenuItemProps = ComponentProps<'li'> &
+  VariantProps<typeof Item> & {
+    name: keyof typeof dynamicIconImports
+  }
+
+export function MenuItem({ name, title, variant, ...props }: MenuItemProps) {
   return (
-    <li className="flex justify-center gap-2 cursor-pointer ">
-      <LucideIcon {...props} />
+    <li {...props} className={Item({ variant })}>
+      <Icon name={name} />
       <h2>{title}</h2>
     </li>
   )
