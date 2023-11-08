@@ -34,7 +34,7 @@ export default function Aside() {
           className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide"
           onChange={() => setCurrentTab}
         >
-          {/* {listLinks &&
+          {listLinks &&
             listLinks.map(({ title }) => {
               return (
                 <MenuItem
@@ -45,7 +45,7 @@ export default function Aside() {
                   onClick={() => setCurrentTab(title)}
                 />
               )
-            })} */}
+            })}
         </ul>
       </div>
 
