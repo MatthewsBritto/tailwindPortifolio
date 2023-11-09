@@ -1,14 +1,15 @@
 import React from 'react'
-import { Icon, IconProps } from '../Aside/MenuItem'
+import IconItem, { IconAsideProps } from '../Aside/IconItem'
 
-interface HobbieItemProps extends IconProps {
+interface HobbieItemProps {
   title: string
+  name: IconAsideProps['type']
 }
 
-export default function HoobieItem({ name, title, ...props }: HobbieItemProps) {
+export default function HoobieItem({ name, title }: HobbieItemProps) {
   return (
     <li className="group flex flex-col justify-center p-4 items-center cursor-pointer rounded h-28 bg-primary transition hover:scale-105">
-      <Icon name={name} {...props} className="group-hover:scale-125" />
+      <IconItem type={name} size={'2rem'} />
       <h3 className="group-hover:scale-125 mt-2">{title}</h3>
     </li>
   )

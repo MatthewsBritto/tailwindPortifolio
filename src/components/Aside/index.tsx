@@ -1,18 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
-import { Linkedin, Github } from 'lucide-react'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import MenuItem from './MenuItem'
 import { useState } from 'react'
+import { IconAsideProps } from './IconItem'
 
 export default function Aside() {
   const [currentTab, setCurrentTab] = useState('home')
 
-  const listLinks = [
+  interface ObjLink {
+    name: IconAsideProps['type']
+    title: string
+  }
+
+  const listLinks: ObjLink[] = [
     { name: 'FaHouseChimney', title: 'home' },
-    { name: 'FaHouseChimney', title: 'about' },
-    { name: 'FaHouseChimney-copy', title: 'skills' },
-    { name: 'FaHouseChimney', title: 'works' },
-    { name: 'FaHouseChimney', title: 'Contact' },
+    { name: 'FaUser', title: 'about' },
+    { name: 'FaBook', title: 'skills' },
+    { name: 'FaBriefcase', title: 'works' },
+    { name: 'FaPhone', title: 'Contact' },
   ]
 
   return (
@@ -33,7 +39,7 @@ export default function Aside() {
               return (
                 <MenuItem
                   key={title}
-                  name={name}
+                  type={name}
                   active={currentTab === title}
                   title={title.toUpperCase()}
                   onClick={() => setCurrentTab(title)}
@@ -44,12 +50,12 @@ export default function Aside() {
       </div>
 
       <footer className="flex space-x-6">
-        <Linkedin
+        <FaLinkedinIn
           className="text-white cursor-pointer hover:text-yellow-500 border rounded p-2 hover:border-yellow-500 selection:border-green-600"
           size={42}
         />
 
-        <Github
+        <FaGithub
           className="text-white cursor-pointer hover:text-yellow-500 border rounded p-2 hover:border-yellow-500"
           size={42}
         />

@@ -18,9 +18,9 @@ export default function index() {
       <div className=" mt-14 w-3/4 ">
         <h2 className="text-2xl font-semibold">My Hobbies</h2>
         <ul className="grid grid-cols-3 gap-10 mt-8 ">
-          <HoobieItem name="gamepad-2" title="Games" />
-          <HoobieItem name="headphones" title="Music" />
-          <HoobieItem name="medal" title="Sports" />
+          <HoobieItem name="FaGamepad" title="Games" />
+          <HoobieItem name="FaGuitar" title="Music" />
+          <HoobieItem name="FaMedal" title="Sports" />
         </ul>
       </div>
     </div>

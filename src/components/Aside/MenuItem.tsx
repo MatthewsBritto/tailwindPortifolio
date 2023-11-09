@@ -1,14 +1,17 @@
 import { ComponentProps } from 'react'
+import IconItem, { IconAsideProps } from './IconItem'
 
-import * as IconFa from 'react-icons/fa6'
-import { IconType } from 'react-icons/lib/esm/iconBase'
-
-export type MenuItemProps = ComponentProps<'li'> & {
+export interface MenuItemProps extends ComponentProps<'li'> {
   active: boolean
-  name: IconType
+  type: IconAsideProps['type']
 }
 
-export default function MenuItem({ title, active, ...props }: MenuItemProps) {
+export default function MenuItem({
+  title,
+  active,
+  type,
+  ...props
+}: MenuItemProps) {
   return (
     <li
       {...props}
@@ -16,8 +19,10 @@ export default function MenuItem({ title, active, ...props }: MenuItemProps) {
         active ? 'text-yellow-500' : 'text-white'
       } cursor-pointer `}
     >
-      <IconFa.Fa42Group />
-
+      <IconItem
+        type={type}
+        className={` ${active ? 'animate-bounce' : null} `}
+      />
       <h2>{title}</h2>
     </li>
   )
