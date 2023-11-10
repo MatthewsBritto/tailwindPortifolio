@@ -1,14 +1,23 @@
-import React from 'react'
 import WorkItem from './WorkItem'
+import { ProjectProps, getRepos } from '@/api/repos'
 
-export default function Works() {
+export async function Works() {
+  const repos: ProjectProps[] = await getRepos()
+
   return (
-    <div className="flex flex-1 flex-col bg-secondary p-8 ">
-      <WorkItem
-        title="Filmes"
-        desc="Filmes de terror"
-        techs="Styled , Tailwind, Next"
-      />
+    <div className="flex flex-1 flex-col bg-secondary p-4 ">
+      <h2 className="font-bold text-2xl py-8 text-white">Projects</h2>
+      <ul className="flex gap-8 flex-wrap">
+        {repos &&
+          repos.map((repo) => (
+            <WorkItem
+              desc={repo.description}
+              title={repo.name}
+              key={repo.name}
+              techs={repo.language}
+            />
+          ))}
+      </ul>
     </div>
   )
 }
