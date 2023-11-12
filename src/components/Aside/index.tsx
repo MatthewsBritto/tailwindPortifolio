@@ -25,6 +25,7 @@ export default function Aside() {
     <aside className="w-72 py-10 h-screen flex flex-col items-center bg-primary justify-evenly border-r-2  border-r-[#6C63FF]">
       <div className="space-y-20">
         <img
+  
           src="https://github.com/MatthewsBritto.png"
           alt=""
           className="h-40 rounded-full border border-[#6C63FF]"

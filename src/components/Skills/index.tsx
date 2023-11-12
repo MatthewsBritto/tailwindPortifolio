@@ -1,67 +1,117 @@
 'use client'
-import React, { useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import TechCard from './TechCard'
 import ListTechs from './ListTechs'
+import NewListCard from './NewListCard'
 
-const techsList = {
+// const techsList = {
+//   front: [
+//     { title: 'Frameworks', techs: ['Next Js', 'Vite'] },
+//     { title: 'Management State', techs: ['Zustand', 'Context Api'] },
+//     { title: 'Tests', techs: ['Jest', 'Vitest'] },
+//     { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
+//     { title: 'Styles', techs: ['Styled Components', 'Stitches', 'Tailwind'] },
+//   ],
+//   back: [
+//     { title: 'Database', techs: ['SQL Server', 'Postgress', 'SQLite'] },
+//     { title: 'Data Management', techs: ['Prisma', 'Fastify'] },
+//     { title: 'Tests', techs: ['Jest', 'Vitest'] },
+//     { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
+//     { title: 'Authorization', techs: ['JWT'] },
+//   ],
+//   mobile: [
+//     { title: 'Ecosystem', techs: ['Expo'] },
+//     { title: 'Navigator', techs: ['Stack Navigator', 'Bottom Navigator'] },
+//     { title: 'Component Library', techs: ['Native Base', 'Gluestack-ui'] },
+//     { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
+//     { title: 'Styles', techs: ['Styled Components', 'Stitches', 'Tailwind'] },
+//   ],
+// }
+
+export const techsList = {
   front: [
-    { title: 'Frameworks', techs: ['Next Js', 'Vite'] },
-    { title: 'Management State', techs: ['Zustand', 'Context Api'] },
-    { title: 'Tests', techs: ['Jest', 'Vitest'] },
-    { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
-    { title: 'Styles', techs: ['Styled Components', 'Stitches', 'Tailwind'] },
+    'Next Js',
+    'Vite',
+    'Zustand',
+    'Context Api',
+    'Jest',
+    'Vitest',
+    'Zod',
+    'Yup',
+    'React Hook Form',
+    'Styled Components',
+    'Stitches',
+    'Tailwind',
   ],
   back: [
-    { title: 'Database', techs: ['SQL Server', 'Postgress', 'SQLite'] },
-    { title: 'Data Management', techs: ['Prisma', 'Fastify'] },
-    { title: 'Tests', techs: ['Jest', 'Vitest'] },
-    { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
-    { title: 'Authorization', techs: ['JWT'] },
+    'SQL Server',
+    'Postgress',
+    'SQLite',
+    'Prisma',
+    'Fastify',
+    'Jest',
+    'Vitest',
+    'Forms & Validador',
+    'Zod',
+    'Yup',
+    'React Hook Form',
+    'Authorization',
+    'JWT',
   ],
   mobile: [
-    { title: 'Ecosystem', techs: ['Expo'] },
-    { title: 'Navigator', techs: ['Stack Navigator', 'Bottom Navigator'] },
-    { title: 'Component Library', techs: ['Native Base', 'Gluestack-ui'] },
-    { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
-    { title: 'Styles', techs: ['Styled Components', 'Stitches', 'Tailwind'] },
+    'Expo',
+    'Navigator',
+    'Stack Navigator',
+    'Bottom Navigator',
+    'Component Library',
+    'Native Base',
+    'Gluestack-ui',
+    'Forms & Validador',
+    'Zod',
+    'Yup',
+    'React Hook Form',
+    'Styled Components',
+    'Stitches',
+    'Tailwind',
   ],
 }
 
 export default function Skills() {
   const [techs, setTechs] = useState(techsList.front)
+  const [category, setCategory] = useState<string[]>([])
+
+  async function changeCategorys() {
+    const ListCategorys = []
+    for (const category in techsList) {
+      ListCategorys.push(category)
+    }
+
+    ListCategorys && setCategory(ListCategorys)
+  }
+
+  useEffect(() => {
+    changeCategorys()
+  }, [])
 
   return (
-    <div className="flex flex-1 flex-col bg-secondary p-8 justify-between">
-      <h2 className="font-bold text-white text-4xl">Techs</h2>
-      <div className="flex flex-1 flex-col bg-primary rounded-md mt-4 min-w-[500px] max-w-screen-2xl p-4 mx-auto">
-        {techs &&
-          techs.map((item) => (
-            <ListTechs key={item.title} title={item.title} techs={item.techs} />
+    <div className="flex flex-1 flex-col bg-secondary justify-center px-8 gap-10 ">
+      <div className="flex flex-col gap-4">
+        <h2 className="font-bold text-white text-4xl">WHAT</h2>
+        <h2 className="font-bold text-white text-4xl ">
+          {' '}
+          <span className="text-primary">SKILLS</span> I HAVE{' '}
+        </h2>
+        <h2 className="font-bold text-white text-4xl ">AS DEVELOPER</h2>
+      </div>
+      <div className="flex w-full flex-wrap gap-2 rounded-md">
+        {category &&
+          category.map((category) => (
+            <NewListCard key={category} category={category} />
           ))}
       </div>
-      <div className={`gap-10 flex mt-4 justify-between max-w-7xl mx-auto`}>
-        <TechCard
-          icon={'FaReact'}
-          techName="React"
-          title="Front-end"
-          onClick={() => setTechs(techsList.front)}
-          active={techs === techsList.front}
-        />
-        <TechCard
-          icon={'FaNodeJs'}
-          techName="Node Js"
-          title="Back-end"
-          onClick={() => setTechs(techsList.back)}
-          active={techs === techsList.back}
-        />
-        <TechCard
-          icon={'FaReact'}
-          techName="React Native"
-          title="Mobile"
-          onClick={() => setTechs(techsList.mobile)}
-          active={techs === techsList.mobile}
-        />
-      </div>
+      {/* <div
+        className={`gap-10 flex mt-4 justify-between max-w-7xl mx-auto`}
+      ></div> */}
     </div>
   )
 }
