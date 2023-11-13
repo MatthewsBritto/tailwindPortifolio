@@ -1,32 +1,6 @@
 'use client'
 import React, { use, useEffect, useState } from 'react'
-import TechCard from './TechCard'
-import ListTechs from './ListTechs'
 import NewListCard from './NewListCard'
-
-// const techsList = {
-//   front: [
-//     { title: 'Frameworks', techs: ['Next Js', 'Vite'] },
-//     { title: 'Management State', techs: ['Zustand', 'Context Api'] },
-//     { title: 'Tests', techs: ['Jest', 'Vitest'] },
-//     { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
-//     { title: 'Styles', techs: ['Styled Components', 'Stitches', 'Tailwind'] },
-//   ],
-//   back: [
-//     { title: 'Database', techs: ['SQL Server', 'Postgress', 'SQLite'] },
-//     { title: 'Data Management', techs: ['Prisma', 'Fastify'] },
-//     { title: 'Tests', techs: ['Jest', 'Vitest'] },
-//     { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
-//     { title: 'Authorization', techs: ['JWT'] },
-//   ],
-//   mobile: [
-//     { title: 'Ecosystem', techs: ['Expo'] },
-//     { title: 'Navigator', techs: ['Stack Navigator', 'Bottom Navigator'] },
-//     { title: 'Component Library', techs: ['Native Base', 'Gluestack-ui'] },
-//     { title: 'Forms & Validador', techs: ['Zod', 'Yup', 'React Hook Form'] },
-//     { title: 'Styles', techs: ['Styled Components', 'Stitches', 'Tailwind'] },
-//   ],
-// }
 
 export const techsList = {
   front: [
@@ -51,7 +25,6 @@ export const techsList = {
     'Fastify',
     'Jest',
     'Vitest',
-    'Forms & Validador',
     'Zod',
     'Yup',
     'React Hook Form',
@@ -66,7 +39,6 @@ export const techsList = {
     'Component Library',
     'Native Base',
     'Gluestack-ui',
-    'Forms & Validador',
     'Zod',
     'Yup',
     'React Hook Form',
@@ -94,7 +66,7 @@ export default function Skills() {
   }, [])
 
   return (
-    <div className="flex flex-1 flex-col bg-secondary justify-center px-8 gap-10 ">
+    <div className="flex flex-1 flex-col absolute w-full h-screen bg-secondary justify-center px-8 gap-10 z-20 ">
       <div className="flex flex-col gap-4">
         <h2 className="font-bold text-white text-4xl">WHAT</h2>
         <h2 className="font-bold text-white text-4xl ">

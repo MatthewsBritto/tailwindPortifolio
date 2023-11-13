@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import Image from 'next/image'
-import SvgImage from '@/assets/programming.svg'
+import SvgImage from '@/assets/programing.svg'
 import { useEffect, useState } from 'react'
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
   }, [change])
 
   return (
-    <div className="flex flex-col flex-1 justify-center items-center h-screen gap-16 bg-secondary">
+    <div className="flex flex-col justify-center absolute h-screen items-center z-10 w-full gap-16 bg-secondary">
       <div>
         <h1 className="text-6xl font-bold p-2 text-white">Matthews Britto</h1>
         <h2 className="px-4 text-xl font-semibold text-white">
