@@ -3,13 +3,13 @@ import { createContext, useState } from 'react'
 
 interface PageContextProps {
   currentPage: string
+  secondPage: string
   changePage: (page: string) => void
 }
 
 export const ThemeContext = createContext<PageContextProps>({
   currentPage: 'home',
-  changePage: () => {},
-})
+} as PageContextProps)
 
 interface IPageProps {
   children: React.ReactNode
@@ -17,13 +17,17 @@ interface IPageProps {
 
 export function PageProvider({ children }: IPageProps) {
   const [currentPage, setCurrentPage] = useState('home')
+  const [secondPage, setSecondPage] = useState('')
 
   function changePage(page: string) {
-    page !== currentPage && setCurrentPage(page)
+    if (page !== currentPage) {
+      setSecondPage(currentPage)
+      setCurrentPage(page)
+    }
   }
 
   return (
-    <ThemeContext.Provider value={{ currentPage, changePage }}>
+    <ThemeContext.Provider value={{ currentPage, secondPage, changePage }}>
       {children}
     </ThemeContext.Provider>
   )

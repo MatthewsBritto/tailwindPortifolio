@@ -1,5 +1,5 @@
 'use client'
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NewListCard from './NewListCard'
 import { BasePageProps } from '@/utils/BaseComponent'
 
@@ -49,8 +49,11 @@ export const techsList = {
   ],
 }
 
-export default function Skills({ active, ...props }: BasePageProps) {
-  const [techs, setTechs] = useState(techsList.front)
+export default function Skills({
+  active,
+  secondActive,
+  ...props
+}: BasePageProps) {
   const [category, setCategory] = useState<string[]>([])
 
   async function changeCategorys() {
@@ -68,9 +71,11 @@ export default function Skills({ active, ...props }: BasePageProps) {
 
   return (
     <div
-      className={`flex flex-1 flex-col absolute w-full h-screen bg-secondary justify-center px-8 gap-10 ${
-        active ? 'z-30' : 'z-20'
-      }`}
+      className={` ${active && 'z-40 flex'} ${secondActive && 'z-20 flex'} ${
+        !active && !secondActive && 'hidden'
+      } flex
+      flex-col absolute w-full h-screen bg-secondary justify-center px-8 gap-10 
+      transition-transform animate-changePage`}
       {...props}
     >
       <div className="flex flex-col gap-4">

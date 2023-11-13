@@ -19,12 +19,18 @@ const config: Config = {
             transform: 'scale-110',
           },
         },
+        changePage: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         scale: 'scale .5s ease-in',
+        changePage: 'changePage .5s ease-in',
       },
     },
   },
+
   plugins: [],
 }
 export default config

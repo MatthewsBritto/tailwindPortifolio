@@ -2,10 +2,15 @@
 'use client'
 import Image from 'next/image'
 import SvgImage from '@/assets/programing.svg'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { BasePageProps } from '@/utils/BaseComponent'
+import { ThemeContext } from '@/context/PageContext'
 
-export default function Home({ active, ...props }: BasePageProps) {
+export default function Home({
+  active,
+  secondActive,
+  ...props
+}: BasePageProps) {
   const techs = ['Front-end', 'Back-end', 'Mobile']
   const [change, setChange] = useState(false)
   const [word, setWord] = useState(techs[0])
@@ -31,9 +36,11 @@ export default function Home({ active, ...props }: BasePageProps) {
 
   return (
     <div
-      className={`flex flex-col justify-center absolute h-screen items-center ${
-        active ? 'z-40' : 'z-20'
-      } w-full gap-16 bg-secondary`}
+      className={`${active && 'z-40 flex'} ${secondActive && 'z-20 flex'} ${
+        !active && !secondActive && 'hidden'
+      }
+       flex flex-col justify-center absolute h-screen items-center transition-transform 
+      animate-changePage w-full gap-16 bg-secondary`}
       {...props}
     >
       <div>
