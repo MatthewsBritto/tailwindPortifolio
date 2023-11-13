@@ -1,4 +1,5 @@
 'use client'
+import { BasePageProps } from '@/utils/BaseComponent'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { FaWhatsapp } from 'react-icons/fa6'
@@ -9,13 +10,17 @@ type ContactFormProps = {
   message: string
 }
 
-export default function Contact() {
+export default function Contact({ active, ...props }: BasePageProps) {
   const { register, handleSubmit } = useForm<ContactFormProps>()
 
   const onSubmit = handleSubmit((data) => console.log(data))
 
   return (
-    <div className="flex flex-1 flex-col w-full h-screen absolute p-8 bg-secondary gap-10 justify-center items-center">
+    <div
+      className={`flex flex-1 flex-col w-full h-screen absolute p-8 bg-secondary gap-10 justify-center items-center ${
+        active ? 'z-30' : 'z-20'
+      }`}
+    >
       <h2 className="font-bold text-3xl text-white ">
         Let´s <span className="text-primary">Talk</span>
       </h2>

@@ -2,24 +2,27 @@
 'use client'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 import MenuItem from './MenuItem'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { IconAsideProps } from './IconItem'
+import { ThemeContext } from '@/context/PageContext'
+
+interface ObjLink {
+  name: IconAsideProps['type']
+
+  title: string
+}
+const listLinks: ObjLink[] = [
+  { name: 'FaHouseChimney', title: 'home' },
+  { name: 'FaUser', title: 'about' },
+  { name: 'FaBook', title: 'skills' },
+  { name: 'FaBriefcase', title: 'works' },
+  { name: 'FaPhone', title: 'contact' },
+]
 
 export default function Aside() {
-  const [currentTab, setCurrentTab] = useState('home')
+  // const [currentTab, setCurrentTab] = useState('home')
 
-  interface ObjLink {
-    name: IconAsideProps['type']
-    title: string
-  }
-
-  const listLinks: ObjLink[] = [
-    { name: 'FaHouseChimney', title: 'home' },
-    { name: 'FaUser', title: 'about' },
-    { name: 'FaBook', title: 'skills' },
-    { name: 'FaBriefcase', title: 'works' },
-    { name: 'FaPhone', title: 'Contact' },
-  ]
+  const { currentPage, changePage } = useContext(ThemeContext)
 
   return (
     <aside className="w-72 absolute z-50 py-10 h-screen flex flex-col items-center bg-primary justify-evenly border-r-2 ">
@@ -30,19 +33,16 @@ export default function Aside() {
           className="h-40 rounded-full border-2 "
         />
 
-        <ul
-          className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide"
-          onChange={() => setCurrentTab}
-        >
+        <ul className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide">
           {listLinks &&
             listLinks.map(({ title, name }) => {
               return (
                 <MenuItem
                   key={title}
                   type={name}
-                  active={currentTab === title}
+                  active={currentPage === title}
                   title={title.toUpperCase()}
-                  onClick={() => setCurrentTab(title)}
+                  onClick={() => changePage(title)}
                 />
               )
             })}

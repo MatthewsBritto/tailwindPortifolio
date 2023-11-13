@@ -1,6 +1,7 @@
 'use client'
 import React, { use, useEffect, useState } from 'react'
 import NewListCard from './NewListCard'
+import { BasePageProps } from '@/utils/BaseComponent'
 
 export const techsList = {
   front: [
@@ -48,7 +49,7 @@ export const techsList = {
   ],
 }
 
-export default function Skills() {
+export default function Skills({ active, ...props }: BasePageProps) {
   const [techs, setTechs] = useState(techsList.front)
   const [category, setCategory] = useState<string[]>([])
 
@@ -66,7 +67,12 @@ export default function Skills() {
   }, [])
 
   return (
-    <div className="flex flex-1 flex-col absolute w-full h-screen bg-secondary justify-center px-8 gap-10 z-20 ">
+    <div
+      className={`flex flex-1 flex-col absolute w-full h-screen bg-secondary justify-center px-8 gap-10 ${
+        active ? 'z-30' : 'z-20'
+      }`}
+      {...props}
+    >
       <div className="flex flex-col gap-4">
         <h2 className="font-bold text-white text-4xl">WHAT</h2>
         <h2 className="font-bold text-white text-4xl ">
@@ -81,9 +87,6 @@ export default function Skills() {
             <NewListCard key={category} category={category} />
           ))}
       </div>
-      {/* <div
-        className={`gap-10 flex mt-4 justify-between max-w-7xl mx-auto`}
-      ></div> */}
     </div>
   )
 }

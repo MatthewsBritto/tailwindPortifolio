@@ -1,8 +1,13 @@
+import { BasePageProps } from '@/utils/BaseComponent'
 import HoobieItem from './Item'
 
-export default function index() {
+export default function index({ active, ...props }: BasePageProps) {
   return (
-    <div className="flex flex-col absolute bg-secondary text-white p-8  justify-center items-center h-screen ">
+    <div
+      className={`flex ${
+        active ? 'z-30' : 'z-20'
+      } flex-col absolute bg-secondary text-white p-8  justify-center items-center h-screen`}
+    >
       <div className=" items-star">
         <h2 className="font-bold text-3xl mb-8 ">
           Who Am <span className="text-primary">I</span>

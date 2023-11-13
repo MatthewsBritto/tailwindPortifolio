@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import SvgImage from '@/assets/programing.svg'
 import { useEffect, useState } from 'react'
+import { BasePageProps } from '@/utils/BaseComponent'
 
-export default function Home() {
+export default function Home({ active, ...props }: BasePageProps) {
   const techs = ['Front-end', 'Back-end', 'Mobile']
   const [change, setChange] = useState(false)
   const [word, setWord] = useState(techs[0])
@@ -29,7 +30,12 @@ export default function Home() {
   }, [change])
 
   return (
-    <div className="flex flex-col justify-center absolute h-screen items-center z-10 w-full gap-16 bg-secondary">
+    <div
+      className={`flex flex-col justify-center absolute h-screen items-center ${
+        active ? 'z-40' : 'z-20'
+      } w-full gap-16 bg-secondary`}
+      {...props}
+    >
       <div>
         <h1 className="text-6xl font-bold p-2 text-white">Matthews Britto</h1>
         <h2 className="px-4 text-xl font-semibold text-white">
