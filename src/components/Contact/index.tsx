@@ -25,7 +25,7 @@ export default function Contact({
         !active && !secondActive && 'hidden'
       }
        flex-1 flex-col w-full h-screen absolute p-8 bg-secondary gap-10 justify-center items-center 
-       transition-transform animate-changePage
+       transition-transform animate-changePage top-0
       `}
       {...props}
     >

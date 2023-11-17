@@ -71,11 +71,11 @@ export default function Skills({
 
   return (
     <div
-      className={` ${active && 'z-40 flex'} ${secondActive && 'z-20 flex'} ${
+      className={`${active && 'z-40 flex'} ${secondActive && 'z-20 flex'} ${
         !active && !secondActive && 'hidden'
-      } flex
-      flex-col absolute w-full h-screen bg-secondary justify-center px-8 gap-10 
-      transition-transform animate-changePage`}
+      }
+       flex flex-col justify-center absolute h-screen items-center transition-transform 
+      animate-changePage w-full gap-16 bg-secondary top-0`}
       {...props}
     >
       <div className="flex flex-col gap-4">
