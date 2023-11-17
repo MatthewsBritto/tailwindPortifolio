@@ -23,10 +23,15 @@ const config: Config = {
           '0%': { transform: 'translateX(100%)' },
           '100%': { transform: 'translateX(0)' },
         },
+        disapear: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
       },
       animation: {
         scale: 'scale .5s ease-in',
         changePage: 'changePage .5s ease-in',
+        disapear: 'disapear .5s ease-in',
       },
     },
   },

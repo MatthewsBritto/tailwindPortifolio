@@ -44,8 +44,8 @@ export default function Home({
       {...props}
     >
       <div>
-        <h1 className="text-6xl font-bold p-2 text-white">Matthews Britto</h1>
-        <h2 className="px-4 text-xl font-semibold text-white">
+        <h1 className="text-6xl font-bold p-4 text-white">Matthews Britto</h1>
+        <h2 className="px-5 text-xl font-semibold text-white">
           I&apos;m a {word} Developer
         </h2>
       </div>

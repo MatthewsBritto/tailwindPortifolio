@@ -7,10 +7,6 @@ import Contact from '../Contact'
 import { ThemeContext } from '@/context/PageContext'
 import { Works } from '../Works'
 
-interface MainContainerProps {
-  children: React.ReactNode
-}
-
 export default function MainContainer() {
   const { changePage, currentPage, secondPage } = useContext(ThemeContext)
 
