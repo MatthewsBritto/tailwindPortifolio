@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <div className="absolute h-screen w-screen overflow-hidden">
       <Aside />
-      <div className="relative left-[18rem] w-[calc(100%-288px)] transition-transform animate-changePage h-screen">
+      <div className="lg:relative lg:left-[18rem] lg:w-[calc(100%-288px)] transition-transform animate-changePage h-screen">
         <MainContainer />
       </div>
     </div>

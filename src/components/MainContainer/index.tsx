@@ -28,10 +28,10 @@ export default function MainContainer() {
         active={currentPage === 'skills'}
         secondActive={secondPage === 'skills'}
       />
-      <Works
+      {/* <Works
         active={currentPage === 'works'}
         secondActive={secondPage === 'works'}
-      />
+      /> */}
       <Contact
         active={currentPage === 'contact'}
         secondActive={secondPage === 'contact'}

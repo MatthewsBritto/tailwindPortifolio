@@ -15,7 +15,7 @@ export default function MenuItem({
   return (
     <li
       {...props}
-      className={`flex flex-1 items-center justify-start gap-4 ${
+      className={`flex lg:flex-1 items-center justify-start gap-4 ${
         active ? 'text-yellow-500' : 'text-white'
       } cursor-pointer `}
     >
