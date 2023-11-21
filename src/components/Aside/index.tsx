@@ -63,7 +63,7 @@ export default function Aside() {
         </footer>
       </aside>
 
-      <div className="z-50 text-white absolute top-5 left-5 transition-all animate-disapear">
+      <div className="lg:hidden z-50 text-white absolute top-5 left-5 transition-all animate-disapear">
         <div onClick={() => setToggleMenuActive(true)}>
           <FaBars size={30} />
         </div>

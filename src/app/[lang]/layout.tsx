@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
-import Aside from '@/components/Aside'
+
 import { PageProvider } from '@/context/PageContext'
+import { i18n } from './i18n'
+
+export async function generateStaticParams() {
+  const languages = i18n.locales.map((lang) => ({ lang }))
+  return languages
+}
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,11 +21,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: {
   children: React.ReactNode
+  params: { lang: string }
 }) {
   return (
-    <html lang="en">
+    <html lang={params.lang}>
       <body className={inter.className}>
         <PageProvider>{children}</PageProvider>
       </body>
