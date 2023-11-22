@@ -1,7 +1,8 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import NewListCard from './NewListCard'
 import { BasePageProps } from '@/utils/BaseComponent'
+import { ThemeContext } from '@/context/PageContext'
 
 export const techsList = {
   front: [
@@ -55,6 +56,7 @@ export default function Skills({
   ...props
 }: BasePageProps) {
   const [category, setCategory] = useState<string[]>([])
+  const { messages } = useContext(ThemeContext)
 
   async function changeCategorys() {
     const ListCategorys = []
@@ -79,12 +81,12 @@ export default function Skills({
       {...props}
     >
       <div className="flex flex-col gap-4">
-        <h2 className="font-bold text-white text-4xl">WHAT</h2>
+        <h2 className="font-bold text-white text-4xl">{messages.my}</h2>
         <h2 className="font-bold text-white text-4xl ">
           {' '}
-          <span className="text-primary">SKILLS</span> I HAVE{' '}
+          <span className="text-primary">{messages.skills}</span> {messages.as}{' '}
         </h2>
-        <h2 className="font-bold text-white text-4xl ">AS DEVELOPER</h2>
+        <h2 className="font-bold text-white text-4xl ">{messages.dev}</h2>
       </div>
       <div className="flex w-full flex-wrap gap-2 rounded-md">
         {category &&

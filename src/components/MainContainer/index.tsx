@@ -17,20 +17,20 @@ export default function MainContainer() {
         secondActive={secondPage === 'home'}
       />
       <About
-        active={currentPage === 'about'}
-        secondActive={secondPage === 'about'}
+        active={currentPage === 'about' || currentPage === 'sobre'}
+        secondActive={secondPage === 'about' || secondPage === 'sobre'}
       />
       <Skills
-        active={currentPage === 'skills'}
-        secondActive={secondPage === 'skills'}
+        active={currentPage === 'skills' || currentPage === 'habilidades'}
+        secondActive={secondPage === 'skills' || secondPage === 'habilidades'}
       />
       {/* <Works
-        active={currentPage === 'works'}
-        secondActive={secondPage === 'works'}
+        active={currentPage === 'works' || currentPage === 'trabalhos'}
+        secondActive={secondPage === 'works'|| secondPage === 'trabalhos'}
       /> */}
       <Contact
-        active={currentPage === 'contact'}
-        secondActive={secondPage === 'contact'}
+        active={currentPage === 'contact' || currentPage === 'contato'}
+        secondActive={secondPage === 'contact' || secondPage === 'contato'}
       />
     </div>
   )

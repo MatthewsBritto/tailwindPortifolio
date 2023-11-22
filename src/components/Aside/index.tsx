@@ -3,25 +3,10 @@
 import { FaGithub, FaLinkedinIn, FaBars, FaX } from 'react-icons/fa6'
 import MenuItem from './MenuItem'
 import { useContext, useState } from 'react'
-import { IconAsideProps } from './IconItem'
 import { ThemeContext } from '@/context/PageContext'
 
-interface ObjLink {
-  name: IconAsideProps['type']
-
-  title: string
-}
-const listLinks: ObjLink[] = [
-  { name: 'FaHouseChimney', title: 'home' },
-  { name: 'FaUser', title: 'about' },
-  { name: 'FaBook', title: 'skills' },
-  { name: 'FaBriefcase', title: 'works' },
-  { name: 'FaPhone', title: 'contact' },
-]
-
 export default function Aside() {
-  const { currentPage, changePage } = useContext(ThemeContext)
-
+  const { currentPage, changePage, messages } = useContext(ThemeContext)
   const [toggleMenuActive, setToggleMenuActive] = useState(false)
 
   return (
@@ -35,8 +20,8 @@ export default function Aside() {
           />
 
           <ul className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide">
-            {listLinks &&
-              listLinks.map(({ title, name }) => {
+            {messages.listLink &&
+              messages.listLink.map(({ title, name }) => {
                 return (
                   <MenuItem
                     key={title}
@@ -79,18 +64,15 @@ export default function Aside() {
             <FaX size={24} />
           </div>
           <ul className="w-1/2 text-lg font-bold text-white h-screen flex flex-col justify-center mx-auto items-center gap-6 animate-disapear">
-            {listLinks &&
-              listLinks.map(({ title, name }) => {
+            {messages.listLink &&
+              messages.listLink.map(({ title, name }) => {
                 return (
                   <MenuItem
                     key={title}
                     type={name}
                     active={currentPage === title}
                     title={title.toUpperCase()}
-                    onClick={() => {
-                      setToggleMenuActive(false)
-                      changePage(title)
-                    }}
+                    onClick={() => changePage(title)}
                   />
                 )
               })}

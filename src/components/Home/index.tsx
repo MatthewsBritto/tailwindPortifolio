@@ -15,6 +15,8 @@ export default function Home({
   const [change, setChange] = useState(false)
   const [word, setWord] = useState(techs[0])
 
+  const { messages } = useContext(ThemeContext)
+
   async function writeOnScreen(word: string, i = 0) {
     if (i <= word.length) {
       setWord(word.slice(0, i + 1))
@@ -44,9 +46,9 @@ export default function Home({
       {...props}
     >
       <div>
-        <h1 className="text-6xl font-bold p-4 text-white">Matthews Britto</h1>
+        <h1 className="text-6xl font-bold p-4 text-white">{messages.name}</h1>
         <h2 className="px-5 text-xl font-semibold text-white">
-          I&apos;m a {word} Developer
+          {`${messages.description} ${messages.category} ${word} `}
         </h2>
       </div>
       <div className="flex flex-col items-center justify-center  ">
@@ -55,7 +57,7 @@ export default function Home({
           className="py-4 px-12 bg-primary rounded-full font-bold text-white"
           onClick={() => RepeatCycle()}
         >
-          Avançar
+          {messages.btnAction}
         </button>
       </div>
     </div>

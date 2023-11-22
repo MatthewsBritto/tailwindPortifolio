@@ -1,6 +1,7 @@
 'use client'
+import { ThemeContext } from '@/context/PageContext'
 import { BasePageProps } from '@/utils/BaseComponent'
-import React from 'react'
+import React, { useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { FaWhatsapp } from 'react-icons/fa6'
 
@@ -17,6 +18,8 @@ export default function Contact({
 }: BasePageProps) {
   const { register, handleSubmit } = useForm<ContactFormProps>()
 
+  const { messages } = useContext(ThemeContext)
+
   const onSubmit = handleSubmit((data) => console.log(data))
 
   return (
@@ -30,7 +33,7 @@ export default function Contact({
       {...props}
     >
       <h2 className="font-bold text-3xl text-white ">
-        Let´s <span className="text-primary">Talk</span>
+        {messages.lets} <span className="text-primary">{messages.talk}</span>
       </h2>
       <div className="w-[350px]">
         <form
@@ -38,7 +41,7 @@ export default function Contact({
           onSubmit={onSubmit}
         >
           <div className="flex flex-col mb-4 gap-1">
-            <label>Name</label>
+            <label>{messages.Labelname}</label>
             <input
               className="rounded-md p-1 text-black outline-none"
               {...register('name')}
@@ -54,7 +57,7 @@ export default function Contact({
             />
           </div>
           <div className="flex flex-col mb-4 gap-1 ">
-            <label>Message</label>
+            <label>{messages.Labelmessage}</label>
             <textarea
               className="rounded-md p-1 text-black outline-none"
               {...register('message')}
@@ -64,7 +67,7 @@ export default function Contact({
             className="px-6 py-2 bg-yellow-500 rounded-md font-semibold cursor-pointer"
             type="submit"
           >
-            Send
+            {messages.Labelname === 'name' ? 'Send' : 'Enviar'}
           </button>
         </form>
       </div>
