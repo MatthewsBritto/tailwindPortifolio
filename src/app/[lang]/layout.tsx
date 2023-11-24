@@ -6,10 +6,6 @@ import { PageProvider } from '@/context/PageContext'
 
 // eslint-disable-next-line camelcase
 
-// export async function generateStaticParams() {
-//   const languages = i18n.locales.map((lang) => ({ lang }))
-//   return languages
-// }
 const inter = Inter({ subsets: ['latin'] })
 
 // export const poppins = Poppins({ subsets: ['latin'], weight: ['400', '700'] })
