@@ -1,12 +1,26 @@
 import React from 'react'
 import { techsList } from '@/components/Skills/index'
+import { ListTechsProps } from './ListTechs'
 
+export type TechTypes = 'front' | 'back' | 'mobile'
 interface ItemProps {
   category: string
 }
 
 export default function NewListCard({ category }: ItemProps) {
-  const currentCategory = techsList[`${category}`]
+  const teste = () => {
+    if (category === 'front') {
+      return 'front'
+    }
+    if (category === 'back') {
+      return 'back'
+    }
+    return 'mobile'
+  }
+
+  const index: TechTypes = teste()
+
+  const currentCategory = techsList[index]
 
   return (
     <div className="flex flex-col rounded-md p-2 border border-primary bg-primary text-white shadow-2xl shadow-black md:items-center">

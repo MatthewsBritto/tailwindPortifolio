@@ -5,7 +5,7 @@ import { getDictionaryUseClient } from '@/dictionaries/default-dictionarie-clien
 import { createContext, useState } from 'react'
 
 export type ListItemProps = {
-  name: IconAsideProps['type']
+  name: any
   title: string
 }
 
@@ -49,7 +49,7 @@ interface IPageProps {
 export function PageProvider({ children }: IPageProps) {
   const [currentPage, setCurrentPage] = useState('home')
   const [secondPage, setSecondPage] = useState('')
-  const [messages, setMessages] = useState<MessageProps>({} as MessageProps)
+  const [messages, setMessages] = useState<any>({} as MessageProps)
 
   function changePage(page: string) {
     if (page !== currentPage) {

@@ -3,7 +3,7 @@ import * as ReactIcons from 'react-icons/fa'
 
 interface ItemCardProps extends ComponentProps<'div'> {
   techName: string
-  icon: string
+  icon: typeof ReactIcons
   title: string
   active: boolean
 }
@@ -15,7 +15,7 @@ export default function TechCard({
   active,
   ...props
 }: ItemCardProps) {
-  const Icon = ReactIcons[icon]
+  // const Icon = icon[icon]
   return (
     <div className="group p-4 mt-4 group-hover:scale-110 transition" {...props}>
       <h2 className="font-semibold text-white text-2xl text-center">{title}</h2>
@@ -24,7 +24,7 @@ export default function TechCard({
           active ? 'bg-sky-700' : 'bg-primary'
         }  w-28 rounded text-center cursor-pointer h-36 group-hover:scale-110`}
       >
-        <Icon size={'3rem'} />
+        {/* <Icon size={'3rem'} /> */}
         <span className="text-md group-hover:scale-110 leading-tight">
           {techName}
         </span>

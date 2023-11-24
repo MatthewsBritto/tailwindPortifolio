@@ -1,4 +1,3 @@
-import { IconBaseProps } from 'react-icons'
 import {
   FaHouseChimney,
   FaUser,
@@ -10,7 +9,7 @@ import {
   FaGuitar,
 } from 'react-icons/fa6'
 
-export interface IconAsideProps extends IconBaseProps {
+export interface IconAsideProps {
   type:
     | 'FaHouseChimney'
     | 'FaUser'

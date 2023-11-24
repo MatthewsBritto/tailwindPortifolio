@@ -1,6 +1,6 @@
 'use client'
 import React, { useContext, useEffect, useState } from 'react'
-import NewListCard from './NewListCard'
+import NewListCard, { TechTypes } from './NewListCard'
 import { BasePageProps } from '@/utils/BaseComponent'
 import { ThemeContext } from '@/context/PageContext'
 

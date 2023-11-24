@@ -26,8 +26,8 @@ async function getRepos() {
   const JsonRepos: ProjectProps[] = []
 
   for (const item of repos) {
-    const res: AxiosResponse = await RequestPromise(item)
-    if (res) {
+    const res: any = await RequestPromise(item)
+    if (res.data) {
       JsonRepos.push({
         name: res.data.name,
         description: res.data.description,

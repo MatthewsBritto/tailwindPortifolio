@@ -9,7 +9,7 @@ interface HobbieItemProps {
 export default function HoobieItem({ name, title }: HobbieItemProps) {
   return (
     <li className="group flex flex-col justify-center p-4 items-center cursor-pointer rounded mdPhone:h-28 bg-primary transition hover:scale-105">
-      <IconItem type={name} size={'2rem'} />
+      <IconItem type={name} />
       <h3 className="group-hover:scale-125 mt-2">{title}</h3>
     </li>
   )

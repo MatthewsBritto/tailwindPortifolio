@@ -21,7 +21,7 @@ export default function MenuItem({
     >
       <IconItem
         type={type}
-        className={` ${active ? 'animate-bounce' : null} `}
+        // className={` ${active ? 'animate-bounce' : null} `}
       />
       <h2>{title}</h2>
     </li>
