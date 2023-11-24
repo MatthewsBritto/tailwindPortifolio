@@ -1,5 +1,5 @@
 'use client'
-import { Locale } from '@/app/[lang]/i18n'
+import { Locale } from '@/middleware'
 import { IconAsideProps } from '@/components/Aside/IconItem'
 import { getDictionaryUseClient } from '@/dictionaries/default-dictionarie-client'
 import { createContext, useState } from 'react'

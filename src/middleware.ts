@@ -1,5 +1,11 @@
 import createMiddleware from 'next-intl/middleware'
-import { i18n } from '@/app/[lang]/i18n'
+const defaultLocale = 'pt-BR'
+const langs = [defaultLocale, 'en-US'] as const
+
+const locales = langs as unknown as string[]
+export const i18n = { defaultLocale, locales, localeDetection: true }
+
+export type Locale = (typeof langs)[number]
 
 export default createMiddleware(i18n)
 
