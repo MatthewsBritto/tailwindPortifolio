@@ -2,14 +2,11 @@
 import Aside from '@/components/Aside'
 import MainContainer from '@/components/MainContainer'
 import { ThemeContext } from '@/context/PageContext'
-import { defaultDictionary } from '@/dictionaries/default-dictionaries'
 import { useContext, useEffect } from 'react'
 
 type LangProps = 'pt-BR' | 'en-US'
 
 export default function Page({ params }: { params: { lang: LangProps } }) {
-  // const messages = defaultDictionary[`${params.lang}`]
-
   const { getLangFromMessages } = useContext(ThemeContext)
 
   useEffect(() => {

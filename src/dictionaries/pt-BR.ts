@@ -1,5 +1,6 @@
 export const ptBR = {
   site: {
+    lang: 'pt-BR',
     name: 'Matthews Britto',
     description: 'Sou um',
     category: 'Desenvolvedor',

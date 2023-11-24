@@ -2,10 +2,13 @@
 import { BasePageProps } from '@/utils/BaseComponent'
 import WorkItem from './WorkItem'
 import { ProjectProps, getRepos } from '@/api/repos'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { ThemeContext } from '@/context/PageContext'
 
 export function Works({ active, secondActive, ...props }: BasePageProps) {
   const [repos, setRepos] = useState<ProjectProps[]>([])
+
+  const { messages } = useContext(ThemeContext)
 
   async function getReposRequest() {
     const res: ProjectProps[] = await getRepos()
@@ -33,8 +36,10 @@ export function Works({ active, secondActive, ...props }: BasePageProps) {
       transition-transform animate-changePage`}
       {...props}
     >
-      <h2 className="font-bold text-2xl py-8 text-white">Projects</h2>
-      <ul className="flex gap-8 flex-wrap flex-1 items-center justify-center">
+      <h2 className="font-bold text-2xl py-8 text-white md:text-4xl">
+        {messages.lang === 'pt-BR' ? 'Projetos' : 'Projects'}
+      </h2>
+      <ul className="grid grid-cols-2 gap-4 lg:flex md:gap-8 flex-wrap lg:flex-1 items-center justify-center">
         {repos &&
           repos.map((repo) => (
             <WorkItem
@@ -42,6 +47,7 @@ export function Works({ active, secondActive, ...props }: BasePageProps) {
               title={repo.name}
               key={repo.name}
               techs={repo.language}
+              link={repo.link}
             />
           ))}
       </ul>

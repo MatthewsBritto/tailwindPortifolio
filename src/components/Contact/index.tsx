@@ -35,9 +35,9 @@ export default function Contact({
       <h2 className="font-bold text-3xl text-white ">
         {messages.lets} <span className="text-primary">{messages.talk}</span>
       </h2>
-      <div className="w-[350px]">
+      <div className="w-[350px] p-4">
         <form
-          className="flex flex-col flex-1 px-4 py-6  justify-center bg-primary text-white rounded-md"
+          className="flex flex-col flex-1 mx-2 px-4 py-6  justify-center bg-primary text-white rounded-md"
           onSubmit={onSubmit}
         >
           <div className="flex flex-col mb-4 gap-1">

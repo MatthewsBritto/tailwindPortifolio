@@ -5,13 +5,15 @@ import About from '../About'
 import Skills from '../Skills'
 import Contact from '../Contact'
 import { ThemeContext } from '@/context/PageContext'
+import Switcher from '../Switcher'
 import { Works } from '../Works'
 
 export default function MainContainer() {
-  const { changePage, currentPage, secondPage } = useContext(ThemeContext)
+  const { currentPage, secondPage } = useContext(ThemeContext)
 
   return (
     <div className="">
+      <Switcher />
       <Home
         active={currentPage === 'home'}
         secondActive={secondPage === 'home'}
@@ -24,10 +26,10 @@ export default function MainContainer() {
         active={currentPage === 'skills' || currentPage === 'habilidades'}
         secondActive={secondPage === 'skills' || secondPage === 'habilidades'}
       />
-      {/* <Works
+      <Works
         active={currentPage === 'works' || currentPage === 'trabalhos'}
-        secondActive={secondPage === 'works'|| secondPage === 'trabalhos'}
-      /> */}
+        secondActive={secondPage === 'works' || secondPage === 'trabalhos'}
+      />
       <Contact
         active={currentPage === 'contact' || currentPage === 'contato'}
         secondActive={secondPage === 'contact' || secondPage === 'contato'}

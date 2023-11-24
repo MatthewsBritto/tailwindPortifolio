@@ -33,6 +33,10 @@ const config: Config = {
         changePage: 'changePage .5s ease-in',
         disapear: 'disapear .5s ease-in',
       },
+      screens: {
+        smPhone: '360px',
+        mdPhone: '390px',
+      },
     },
   },
 

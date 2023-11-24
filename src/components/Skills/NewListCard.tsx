@@ -9,14 +9,14 @@ export default function NewListCard({ category }: ItemProps) {
   const currentCategory = techsList[`${category}`]
 
   return (
-    <div className="flex flex-col w-min-4/12  flex-1 rounded-md p-4 border border-primary bg-primary text-white shadow-2xl shadow-black">
-      <h2 className="font-bold capitalize py-2">{category}-end</h2>
-      <div className="flex py-4 flex-wrap gap-1 gap-y-2 text-justify items-center justify-start">
+    <div className="flex flex-col rounded-md p-2 border border-primary bg-primary text-white shadow-2xl shadow-black md:items-center">
+      <h2 className="font-bold capitalize mdPhone:text-xl py-2">{category}</h2>
+      <div className="flex mdPhone:py-4 flex-wrap gap-1 mdPhone:gap-y-2 text-justify items-center justify-start">
         {currentCategory &&
           currentCategory.map((item: string) => (
             <p
               key={item}
-              className="px-2 text-sm bg-white text-black font-semibold font-light rounded-md h-5"
+              className="px-2 text-xs mdPhone:text-sm bg-white text-black font-semibold rounded-md flex items-center h-5"
             >
               {item}
             </p>

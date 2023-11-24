@@ -9,6 +9,11 @@ export default function Aside() {
   const { currentPage, changePage, messages } = useContext(ThemeContext)
   const [toggleMenuActive, setToggleMenuActive] = useState(false)
 
+  function closeMenuOnClick(title: string) {
+    setToggleMenuActive(false)
+    changePage(title)
+  }
+
   return (
     <>
       <aside className="hidden lg:w-72 lg:absolute lg:z-50 lg:py-10 lg:h-screen lg:flex lg:flex-col lg:items-center lg:bg-primary lg:justify-evenly lg:border-r-2">
@@ -16,7 +21,7 @@ export default function Aside() {
           <img
             src="https://github.com/MatthewsBritto.png"
             alt=""
-            className="h-40 rounded-full border-2 "
+            className="h-40 rounded-full border-2"
           />
 
           <ul className="w-full space-y-7 text-lg font-bold p-4 text-white tracking-wide">
@@ -36,15 +41,27 @@ export default function Aside() {
         </div>
 
         <footer className="flex space-x-6">
-          <FaLinkedinIn
-            className="text-white cursor-pointer hover:text-yellow-500 border rounded p-2 hover:border-yellow-500 selection:border-green-600"
-            size={42}
-          />
+          <a
+            href="https://www.linkedin.com/in/matthews-britto/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedinIn
+              className="text-white cursor-pointer hover:text-yellow-500 border rounded p-2 hover:border-yellow-500 selection:border-green-600"
+              size={42}
+            />
+          </a>
 
-          <FaGithub
-            className="text-white cursor-pointer hover:text-yellow-500 border rounded p-2 hover:border-yellow-500"
-            size={42}
-          />
+          <a
+            href="https://github.com/MatthewsBritto"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub
+              className="text-white cursor-pointer hover:text-yellow-500 border rounded p-2 hover:border-yellow-500"
+              size={42}
+            />
+          </a>
         </footer>
       </aside>
 
@@ -72,7 +89,7 @@ export default function Aside() {
                     type={name}
                     active={currentPage === title}
                     title={title.toUpperCase()}
-                    onClick={() => changePage(title)}
+                    onClick={() => closeMenuOnClick(title)}
                   />
                 )
               })}

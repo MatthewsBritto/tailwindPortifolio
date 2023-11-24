@@ -15,7 +15,8 @@ export default function Home({
   const [change, setChange] = useState(false)
   const [word, setWord] = useState(techs[0])
 
-  const { messages } = useContext(ThemeContext)
+  const { messages, changePage } = useContext(ThemeContext)
+  const teste = messages.lang === 'pt-BR' ? 'sobre' : 'about'
 
   async function writeOnScreen(word: string, i = 0) {
     if (i <= word.length) {
@@ -46,16 +47,23 @@ export default function Home({
       {...props}
     >
       <div>
-        <h1 className="text-6xl font-bold p-4 text-white">{messages.name}</h1>
-        <h2 className="px-5 text-xl font-semibold text-white">
+        <h1 className="text-5xl leading-10 tracking-wider mdPhone:text-6xl font-bold p-5 text-white">
+          {messages.name}
+        </h1>
+        <h2 className="px-6 mdPhone:text-xl font-semibold text-white">
           {`${messages.description} ${messages.category} ${word} `}
         </h2>
       </div>
-      <div className="flex flex-col items-center justify-center  ">
-        <Image src={SvgImage} alt="" className="w-96 mb-14" priority />
+      <div className="flex flex-col items-center justify-center">
+        <Image
+          src={SvgImage}
+          alt=""
+          className="w-72 mdPhone:w-96 mb-14"
+          priority
+        />
         <button
           className="py-4 px-12 bg-primary rounded-full font-bold text-white"
-          onClick={() => RepeatCycle()}
+          onClick={() => changePage(teste)}
         >
           {messages.btnAction}
         </button>

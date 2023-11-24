@@ -5,22 +5,25 @@ interface WorkItemProps {
   title: string
   desc: string
   techs: string
+  link: string
 }
 
-export default function WorkItem({ desc, techs, title }: WorkItemProps) {
+export default function WorkItem({ desc, techs, title, link }: WorkItemProps) {
   return (
     // colocar link para ver o projeto
-    <li className="w-60 bg-primary rounded-md text-white cursor-pointer">
-      <Image className="rounded-t-md" src={Capa} alt="" />
-      <div className=" p-2 text-sm pt-2 flex flex-col gap-2">
-        <h2 className="font-semibold capitalize">{title}</h2>
-        <p className="overflow-hidden text-overflow-ellipsis whitespace-nowrap">
+    <a href={link}>
+      <li className=" lg:w-60 bg-primary rounded-md text-white cursor-pointer">
+        <Image className="rounded-t-md" src={Capa} alt="" />
+        <div className=" p-2 text-sm pt-2 flex flex-col gap-2">
+          <h2 className="font-semibold capitalize">{title}</h2>
+          {/* <p className="overflow-hidden text-overflow-ellipsis whitespace-nowrap">
           {desc}
-        </p>
-        <p className="overflow-hidden text-overflow-ellipsis whitespace-nowrap">
-          {techs}
-        </p>
-      </div>
-    </li>
+        </p> */}
+          <p className="overflow-hidden text-overflow-ellipsis whitespace-nowrap">
+            {techs}
+          </p>
+        </div>
+      </li>
+    </a>
   )
 }

@@ -1,5 +1,6 @@
 export const enUS = {
   site: {
+    lang: 'en-US',
     name: 'Matthews Britto',
     description: 'I m a',
     category: 'Developer',

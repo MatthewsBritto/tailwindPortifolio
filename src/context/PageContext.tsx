@@ -1,7 +1,6 @@
 'use client'
 import { Locale } from '@/app/[lang]/i18n'
 import { IconAsideProps } from '@/components/Aside/IconItem'
-import { MenuItemProps } from '@/components/Aside/MenuItem'
 import { getDictionaryUseClient } from '@/dictionaries/default-dictionarie-client'
 import { createContext, useState } from 'react'
 
@@ -11,6 +10,7 @@ export type ListItemProps = {
 }
 
 export type MessageProps = {
+  lang: string
   name: string
   description: string
   category: string
@@ -60,7 +60,7 @@ export function PageProvider({ children }: IPageProps) {
 
   function getLangFromMessages(params: string) {
     const res = getDictionaryUseClient(params as Locale)
-    res && setMessages(res.site as MessageProps)
+    res && setMessages(res.site)
   }
 
   return (
